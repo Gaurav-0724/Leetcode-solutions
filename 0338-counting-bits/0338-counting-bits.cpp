@@ -1,28 +1,22 @@
 class Solution {
 public:
+    int f(int n){
+        int count = 0;
+        while(n>0){
+            if(n&1){
+                count++;
+            }
+            n = n>>1;
+        }
+        return count;
+    }
     vector<int> countBits(int n) {
-        vector<int>ans(n+1);
-        // for(int i=0;i<n+1;i++){
-        //     int noo =0;
-        //     int num = i;
-        //     for(int j=0;j<32;j++){
-        //         if((num&1)==1) noo+=1;
-        //         num>>=1;
-
-        //     }
-        //     ans[i]=noo;
-        // }
-        ans[0] =0;
-        for(int i=1;i<n+1;i++){
-            if(i%2!=0){
-                ans[i] = ans[i/2]+1;
-            }
-            else{
-                ans[i]= ans[i/2];
-            }
+        vector<int> ans;
+        for(int i = 0 ; i<=n ; i++ ){
+            int t = f(i);
+            ans.push_back(t);
         }
         return ans;
-        
     }
 };
 
