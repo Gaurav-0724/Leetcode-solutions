@@ -3,7 +3,7 @@ public:
     int singleNumber(vector<int>& nums) {
         int n = nums.size();
         int digit = 0;
-        int one =1;
+        \
         for(int i=0;i<32;i++){
             int noo= 0;
             int noz= 0;
@@ -13,11 +13,12 @@ public:
                 nums[i]>>=1;
             }
             if(noo%3==1){
-                digit = (digit|one);
+                int t = 1<<i;
+                digit = (digit|t);
 
             } 
             else digit = (digit|0);
-            one<<=1;
+           
 
 
         }
