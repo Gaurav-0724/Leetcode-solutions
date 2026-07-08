@@ -3,16 +3,15 @@ public:
 
     vector<int> sortByBits(vector<int>& arr) {
         int n = arr.size();
-        vector<vector<int>> bits;
+        vector<pair<int,int> > bits;
         for(int i=0;i<n;i++){
-
             bits.push_back({__builtin_popcount(arr[i]),arr[i]});
 
         }
         sort(bits.begin(),bits.end());
         vector<int>ans;
         for(int i = 0 ; i<n ; i++){
-            ans.push_back(bits[i][1]);
+            ans.push_back(bits[i].second);
         }
         return ans;
 
