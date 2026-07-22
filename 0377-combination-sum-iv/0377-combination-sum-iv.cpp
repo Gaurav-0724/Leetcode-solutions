@@ -19,9 +19,23 @@ public:
     int combinationSum4(vector<int>& nums, int target) {
 
         int n = nums.size();
-        vector<int> dp(target+1,-1);
+        vector<unsigned long long> dp(target+1,-1);
 
-        return totalways(n,target,nums,dp);
+        // return totalways(n,target,nums,dp);
+
+        dp[0] =1;
+        for(int i=1;i<=target;i++){
+            int result=0;
+            for(int j=0;j<n;j++){
+                if(i>=nums[j]){
+                    result+=  dp[i-nums[j]];
+                }
+              
+            }
+            dp[i] =result;
+
+        }
+        return (int)dp[target];
         
     }
 };
