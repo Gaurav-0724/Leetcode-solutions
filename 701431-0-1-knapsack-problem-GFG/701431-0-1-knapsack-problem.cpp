@@ -14,8 +14,24 @@ class Solution {
     int knapsack(int W, vector<int> &val, vector<int> &wt) {
         // code here
         int n = wt.size();
-        vector<vector<int>> dp(W+1,vector<int>(n+1,-1));
-        return findMax(W,n,val,wt,dp);
+        // vector<vector<int>> dp(W+1,vector<int>(n+1,-1));
+        // return findMax(W,n,val,wt,dp);
+        
+        vector<int> prev(W+1,0);
+        
+        for(int i=1;i<=n;i++){
+            vector<int> curr(W+1,0);
+            for(int j=1;j<=W;j++){
+                if(j-wt[i-1]>=0){
+                    curr[j] = max(prev[j] ,val[i-1]+ prev[j-wt[i-1]]);
+                }
+                else{
+                    curr[j] = prev[j];
+                }
+            }
+            prev = curr;
+        }
+        return prev[W];
     }
 };
 
