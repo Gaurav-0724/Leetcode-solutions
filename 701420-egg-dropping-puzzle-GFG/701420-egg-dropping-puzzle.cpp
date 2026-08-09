@@ -1,21 +1,25 @@
 class Solution {
   public:
-    int findways(int eggs,int moves){
+    int findways(int eggs,int moves,vector<vector<int>>& dp){
         if(eggs==0 || moves==0){
             return 0;
         }
         if(eggs==1){
             return moves;
         }
+        if(dp[eggs][moves]!=-1){
+            return dp[eggs][moves];
+        }
         
         
         
-        return 1+ findways(eggs-1,moves-1) + findways(eggs,moves-1);
+        return dp[eggs][moves] = 1+ findways(eggs-1,moves-1,dp) + findways(eggs,moves-1,dp);
     }
     int eggDrop(int n, int k) {
         // code here
         int moves = 0;
-        while(findways(n,moves)<k){
+        vector<vector<int>> dp(n+1,vector<int>(k+1,-1));
+        while(findways(n,moves,dp)<k){
             moves++;
         }
         return moves;
