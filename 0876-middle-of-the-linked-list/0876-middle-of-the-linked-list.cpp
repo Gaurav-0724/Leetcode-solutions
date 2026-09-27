@@ -1,19 +1,30 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        int len = 0;
-        ListNode* temp = head;
+        ListNode* s = head;
+        ListNode* f = head;
 
-        while(temp!=NULL){
-            temp = temp->next;
-            len++;
+        while(f != NULL && f->next != NULL){
+            s = s->next;
+            f = f->next->next;
         }
-        temp = head;
-        for(int i = 1; i <= len/2; i++){
-            temp = temp->next;
-        }
-        return temp;
+        return s;
     }
+
+    // ListNode* middleNode(ListNode* head) {
+    //     int len = 0;
+    //     ListNode* temp = head;
+
+    //     while(temp!=NULL){
+    //         temp = temp->next;
+    //         len++;
+    //     }
+    //     temp = head;
+    //     for(int i = 1; i <= len/2; i++){
+    //         temp = temp->next;
+    //     }
+    //     return temp;
+    // }
 };
 
 // Synced seamlessly with LeetHub Pro
