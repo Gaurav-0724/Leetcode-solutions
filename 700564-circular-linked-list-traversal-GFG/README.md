@@ -1,0 +1,3 @@
+# [Circular Linked List Traversal](https://www.geeksforgeeks.org/problems/circular-linked-list-traversal/1)
+## Easy
+Given the head of a circular linked list, print the data of the nodes in the linked list starting from the head node, traversing the list exactly once.Examples:Input: Output: 1 7 8 10Explanation: The traversal begins at the head node 1, then subsequent nodes 7, 8, and 10. Input: Output: 2 5 7 8 10Explanation: The traversal begins at head node 2, then subsequent nodes 5, 7, 8, and 10. Constraints:&nbsp;1 ≤ number of nodes ≤ 500 ≤ node -&gt; data ≤ 500
